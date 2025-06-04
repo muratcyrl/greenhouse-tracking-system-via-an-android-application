@@ -28,16 +28,16 @@ FirebaseAuth auth;
 FirebaseConfig config;
 //Essential values
 
-unsigned long getDataPrevMillis = 0;
-bool signupOK = false;
-unsigned long sendDataPrevMillis = 0;
-String ReceivedValue1;
-String ReceivedValue2;
-String ReceivedValue3;
-String ReceivedValue4;
+unsigned long getDataPrevMillis   = 0;
+bool signupOK                     = false;
+unsigned long sendDataPrevMillis  = 0;
+String                            ReceivedValue1;
+String                            ReceivedValue2;
+String                            ReceivedValue3;
+String                            ReceivedValue4;
 void setup() {
   Serial.begin(115200);
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin  (WIFI_SSID, WIFI_PASSWORD);
   Serial.print("Connecting The Wifi");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -69,6 +69,7 @@ void setup() {
   Firebase.begin(&config, &auth);
   Firebase.reconnectWiFi(true);
   //pin status
+  //!attention! Arrange your pins accordingly!
   pinMode(19,OUTPUT);
   pinMode(21,OUTPUT);
   pinMode(17,OUTPUT);
