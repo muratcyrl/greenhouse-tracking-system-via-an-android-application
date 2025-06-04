@@ -1,91 +1,94 @@
-🌱 Smart Greenhouse System – ESP32-Based IoT Project
-This project implements an IoT-based Smart Greenhouse System using an ESP32 microcontroller, temperature/humidity and light sensors, and a Firebase-powered Android mobile app for real-time monitoring and control. Designed and developed by Musa Murat Çayırlı, the system offers a modern solution for optimizing plant growth conditions through smart automation.
+# 🌱 Smart Greenhouse System – ESP32-Based IoT Project
 
-📷 Project Overview
+This project implements an **IoT-based Smart Greenhouse System** using an **ESP32 microcontroller**, **temperature/humidity and light sensors**, and a **Firebase-powered Android mobile app** for real-time monitoring and control. Designed and developed by **Musa Murat Çayırlı**, the system offers a modern solution for optimizing plant growth conditions through smart automation.
+
+---
+
+## 📷 Project Overview
+
 The Smart Greenhouse monitors:
 
-🌡️ Temperature (via DHT11)
-
-💧 Humidity (via DHT11)
-
-💡 Light intensity (via LDR)
+- 🌡️ Temperature (via DHT11)
+- 💧 Humidity (via DHT11)
+- 💡 Light intensity (via LDR)
 
 The system:
 
-Sends real-time data to Firebase
+- Sends real-time data to Firebase
+- Provides both **automatic** and **manual** control over fans, lights, and water pumps
+- Uses an **Android application** (built with MIT App Inventor) for monitoring and control
 
-Provides both automatic and manual control over fans, lights, and water pumps
+---
 
-Uses an Android application (built with MIT App Inventor) for monitoring and control
+## 🚀 Features
 
-🧠 Features
-✅ Real-Time Monitoring
-Temperature and humidity updates every few seconds.
+### 🔄 Real-Time Monitoring
+- Temperature and humidity updates every few seconds.
+- Light intensity captured using an LDR.
 
-Light intensity captured using an LDR.
+### ☁️ Firebase Integration
+- ESP32 sends data to **Firebase Realtime Database**.
+- Android app fetches and displays sensor data instantly.
 
-✅ Firebase Integration
-ESP32 sends data to Firebase Realtime Database.
+### 🎛️ Dual Control Modes
+- **Automatic**: Actions triggered based on sensor values.
+- **Manual (Otonom)**: User can manually control hardware components via the app.
 
-Android app fetches and displays sensor data instantly.
+### ♻️ Energy & Resource Optimization
+- Automated irrigation and ventilation reduce water and energy waste.
+- Helps achieve sustainable agriculture practices.
 
-✅ Dual Control Modes
-Automatic: Actions triggered based on sensor values.
+---
 
-Manual (Otonom): User can manually control hardware components via the app.
+## 🧰 Components Used
 
-✅ Energy & Resource Optimization
-Automated irrigation and ventilation reduce water and energy waste.
+| Component | Description |
+|----------|-------------|
+| **ESP32** | Wi-Fi enabled microcontroller for IoT integration |
+| **DHT11** | Temperature and humidity sensor |
+| **LDR** | Light dependent resistor for light intensity |
+| **Fan, Water Pump, LEDs** | Actuators controlled based on environment |
+| **Firebase** | Realtime cloud database for data logging |
+| **Android App** | Developed via MIT App Inventor for remote access |
+| **Miscellaneous** | Breadboard, jumpers, resistors, power supply |
 
-Helps achieve sustainable agriculture practices.
+---
 
-🛠️ Components Used
-Component	Description
-ESP32	Wi-Fi enabled microcontroller for IoT integration
-DHT11	Temperature and humidity sensor
-LDR	Light dependent resistor for light intensity
-Fan, Water Pump, LEDs	Actuators controlled based on environment
-Firebase	Realtime cloud database for data logging
-Android App	Developed via MIT App Inventor for remote access
-Miscellaneous	Breadboard, jumpers, resistors, power supply
+## 🔌 Circuit Diagram
 
-🔌 Circuit Diagram
-(Add circuit diagram screenshot here if available)
+![Circuit Diagram](https://your-image-url.com) *(Add circuit diagram screenshot here if available)*
 
-📱 Android App
-Developed using MIT App Inventor:
+---
 
-Features:
-Firebase login (user:123)
+## 📱 Android App
 
-Live display of environmental data
+Developed using [MIT App Inventor](https://appinventor.mit.edu)
 
-Control toggles for fan, water pump, and lights
+### Features:
+- Firebase login (`user:123`)
+- Live display of environmental data
+- Control toggles for fan, water pump, and lights
+- Auto/manual mode switch
 
-Auto/manual mode switch
-
-Firebase DB URL:
-arduino
-Copy
-Edit
+### Firebase DB URL:
+```
 https://myprojct-bca76-default-rtdb.firebaseio.com/
-💻 main.ino (ESP32 Code Overview)
-The main.ino script does the following:
+```
 
-Connects ESP32 to Wi-Fi
+---
 
-Reads data from DHT11 and LDR
+## 🧾 main.ino (ESP32 Code Overview)
 
-Sends data to Firebase
+The `main.ino` script does the following:
 
-Listens to Firebase for commands
+1. Connects ESP32 to Wi-Fi
+2. Reads data from DHT11 and LDR
+3. Sends data to Firebase
+4. Listens to Firebase for commands
+5. Controls actuators based on real-time commands or thresholds
 
-Controls actuators based on real-time commands or thresholds
-
-Sample Code Snippet:
-cpp
-Copy
-Edit
+#### 📌 Sample Code Snippet:
+```cpp
 float humidity = dht.readHumidity();
 float temperature = dht.readTemperature();
 int lightValue = analogRead(ldrPin);
@@ -94,34 +97,47 @@ int lightValue = analogRead(ldrPin);
 Firebase.setFloat(firebaseData, "/sensor/temperature", temperature);
 Firebase.setFloat(firebaseData, "/sensor/humidity", humidity);
 Firebase.setInt(firebaseData, "/sensor/light", lightValue);
-📈 Calculations
-Humidity: float humidity = data[0] + data[1] / 10.0
+```
 
-Temperature: float temperature = data[2] + data[3] / 10.0
+---
 
-Light %: (ADC_VALUE * 100) / 4095
+## 🧮 Calculations
 
-📊 Performance Evaluation
-Aspect	Summary
-Sensor Reliability	Stable under test conditions with filtering
-Firebase Speed	Occasional delay due to U.S.-based server
-App Responsiveness	Real-time updates, low latency observed
-User Experience	Simple and intuitive interface
+- **Humidity**: `float humidity = data[0] + data[1] / 10.0`
+- **Temperature**: `float temperature = data[2] + data[3] / 10.0`
+- **Light %**: `(ADC_VALUE * 100) / 4095`
 
-🚀 Future Improvements
-Implement machine learning to predict optimal climate conditions.
+---
 
-Switch to local or Europe-based servers for lower latency.
+## 📊 Performance Evaluation
 
-Add CO₂ sensors and soil moisture support.
+| Aspect | Summary |
+|--------|---------|
+| **Sensor Reliability** | Stable under test conditions with filtering |
+| **Firebase Speed** | Occasional delay due to U.S.-based server |
+| **App Responsiveness** | Real-time updates, low latency observed |
+| **User Experience** | Simple and intuitive interface |
 
-Expand to multi-greenhouse control with dashboards.
+---
 
-👨‍💻 Author
-Musa Murat Çayırlı
-📧 Email: 213302066@ogr.selcuk.edu.tr
-🎓 Selçuk University, Electrical and Electronics Engineering
+## 🔮 Future Improvements
+
+- Implement **machine learning** to predict optimal climate conditions.
+- Switch to **local or Europe-based servers** for lower latency.
+- Add **CO₂ sensors** and **soil moisture** support.
+- Expand to multi-greenhouse control with dashboards.
+
+---
+
+## 👨‍💻 Author
+
+**Musa Murat Çayırlı**  
+📧 Email: [213302066@ogr.selcuk.edu.tr](mailto:213302066@ogr.selcuk.edu.tr)  
+🎓 Selçuk University, Electrical and Electronics Engineering  
 🔬 Focus: Embedded Systems, Circuit Design
 
-📜 License
-This project is released under the MIT License.
+---
+
+## 📜 License
+
+This project is released under the [MIT License](LICENSE).
