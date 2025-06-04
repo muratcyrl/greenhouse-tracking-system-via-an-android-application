@@ -126,16 +126,6 @@ Firebase.setInt(firebaseData, "/sensor/light", lightValue);
 - Switch to **local or Europe-based servers** for lower latency.
 - Add **CO₂ sensors** and **soil moisture** support.
 - Expand to multi-greenhouse control with dashboards.
-
----
-
-## 👨‍💻 Author
-
-**Musa Murat Çayırlı**  
-📧 Email: [213302066@ogr.selcuk.edu.tr](mailto:213302066@ogr.selcuk.edu.tr)  
-🎓 Selçuk University, Electrical and Electronics Engineering  
-🔬 Focus: Embedded Systems, Circuit Design
-
 ---
 
 ## 📜 License
