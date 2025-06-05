@@ -1,6 +1,6 @@
 # 🌱 Smart Greenhouse System – ESP32-Based IoT Project
 
-This project implements an **IoT-based Smart Greenhouse System** using an **ESP32 microcontroller**, **temperature/humidity and light sensors**, and a **Firebase-powered Android mobile app** for real-time monitoring and control. Designed and developed by **Musa Murat Çayırlı**, the system offers a modern solution for optimizing plant growth conditions through smart automation.
+This project implements an **IoT-based Smart Greenhouse System** using an **ESP32 microcontroller**, **temperature/humidity and light sensors**, and a **Firebase-powered Android mobile app** for real-time monitoring and control. The system offers a modern solution for optimizing plant growth conditions through smart automation.
 
 ---
 
@@ -69,12 +69,6 @@ Developed using [MIT App Inventor](https://appinventor.mit.edu)
 - Live display of environmental data
 - Control toggles for fan, water pump, and lights
 - Auto/manual mode switch
-
-### Firebase DB URL:
-```
-https://myprojct-bca76-default-rtdb.firebaseio.com/
-```
-
 ---
 
 ## 🧾 main.ino (ESP32 Code Overview)
